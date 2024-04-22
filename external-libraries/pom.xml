@@ -9,16 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-integration</artifactId>
+    <artifactId>external-libraries</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Spring Integration</name>
+    <name>External Libraries</name>
 
     <modules>
-        <module>spring-graphql-example</module>
-        <module>spring-webflux-example</module>
-        <module>spring-websocket-undertow-example</module>
+        <module>resilience4j-example</module>
     </modules>
-
 </project>
