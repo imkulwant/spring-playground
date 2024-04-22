@@ -1,0 +1,32 @@
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+
+spring:
+  application:
+    name: spring-cloud-gateway-example
+  cloud:
+    gateway:
+      routes:
+        - id: dynamic_service_route
+          uri: http://localhost:8081  # URL of downstream service
+          predicates:
+            - Path=/service/resource/**
+          filters:
+            - RewritePath=/service(?<segment>/?.*), $\{segment}
+            - CacheRequestBody
+        - id: service_three_route
+          uri: http://localhost:8083  # URL of downstream service-one
+          predicates:
+            - Path=/service-three/api/**
+          filters:
+            - RewritePath=/service-three(?<segment>/?.*), $\{segment}
+            - name: Logging
+              args:
+                baseMessage: Custom Message
+                preLogger: true
+                postLogger: true
+            - name: ModifyRequest
+              args:
+                defaultLocale: en

@@ -1,0 +1,44 @@
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.kulsin: DEBUG
+
+spring:
+  application:
+    name: spring-cloud-openfeign-example
+
+server:
+  port: 8080
+
+# Rather than use a Configuration class, we can use application.yml to configure Feign clients
+feign:
+  client:
+    config:
+      jplaceholder:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+  hystrix:
+    enabled: true
+
+# To enable logging, we should declare it in the application.properties file using the package name of the client interfaces:
+#
+# logging.level.com.baeldung.cloud.openfeign.client: DEBUG
+#
+# Or, if we want to enable logging only for one particular client in a package, we can use the full class name:
+# Note that Feign logging responds only to the DEBUG level.
+# logging.level.com.kulsin.client.JSONPlaceHolderClient: DEBUG
+#
+# There are four logging levels to choose from:
+#
+#    NONE ? no logging, which is the default
+#    BASIC ? log only the request method, URL and response status
+#    HEADERS ? log the basic information together with request and response headers
+#    FULL ? log the body, headers and metadata for both request and response
+#
+#  We can also create the configuration with default as the client name to configure all @FeignClient objects,
+#  or we can declare the Feign client name for a configuration:
+#
+#  If we have both Configuration bean and configuration properties,
+#  configuration properties will override Configuration bean values.
+#
