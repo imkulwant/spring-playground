@@ -17,5 +17,6 @@
 
     <modules>
         <module>shedlock-hazelcast-example</module>
+        <module>shedlock-mysql-example</module>
     </modules>
 </project>
