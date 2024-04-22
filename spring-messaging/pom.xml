@@ -17,6 +17,7 @@
 
     <modules>
         <module>spring-kafka-example</module>
+        <module>spring-jms-example</module>
     </modules>
 
 </project>
