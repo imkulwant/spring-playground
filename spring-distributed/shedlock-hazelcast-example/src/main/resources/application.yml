@@ -1,0 +1,9 @@
+hazelcast:
+  config:
+    late-initialization: true
+    hibernate:
+      use_global_cache: false
+    properties:
+      hazelcast.logging.type: slf4j
+      hazelcast.shutdownhook.policy: GRACEFUL
+      hazelcast.shutdownhook.enabled: false
