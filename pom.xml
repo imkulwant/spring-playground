@@ -33,6 +33,7 @@
         <module>spring-security</module>
         <module>spring-messaging</module>
         <module>spring-aspects</module>
+        <module>spring-caching</module>
     </modules>
 
     <repositories>
