@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "transaction-content.proto";
+import "transaction-pageable.proto";
+
+package com.kulsin;
+
+option java_package = "com.kulsin.model";
+option java_outer_classname = "TransactionResponseProtos";
+
+message TransactionResponse {
+
+  repeated Content content = 1;
+  Pageable pageable = 2;
+
+}

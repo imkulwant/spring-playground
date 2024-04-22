@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.kulsin;
+
+option java_package = "com.kulsin.model";
+option java_outer_classname = "ContentProtos";
+
+message Content {
+  string txId = 1;
+  string userId = 2;
+  string amount = 3;
+  string type = 4;
+  string time = 5;
+}

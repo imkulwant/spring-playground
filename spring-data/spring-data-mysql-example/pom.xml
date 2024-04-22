@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.kulsin</groupId>
+        <artifactId>spring-data</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>spring-data-mysql-example</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>spring-data-mysql-example-api</module>
+        <module>spring-data-mysql-example-feign-client</module>
+        <module>spring-data-mysql-example-service</module>
+    </modules>
+
+    <properties>
+        <protobuf-java.version>3.21.9</protobuf-java.version>
+        <protobuf-java-format.version>1.4</protobuf-java-format.version>
+        <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
+
+        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        <mysql-connector-j.version>8.3.0</mysql-connector-j.version>
+        <spring-context.version>5.3.22</spring-context.version>
+        <spring-cloud-starter-openfeign.version>3.1.2</spring-cloud-starter-openfeign.version>
+        <feign-core.version>11.8</feign-core.version>
+
+        <jakarta.validation-api.version>2.0.2</jakarta.validation-api.version>
+        <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
+
+        <spring-boot-maven-plugin.version>2.7.4</spring-boot-maven-plugin.version>
+    </properties>
+
+    <dependencies>
+
+
+    </dependencies>
+
+
+</project>
