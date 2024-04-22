@@ -19,6 +19,7 @@
         <module>spring-data-elasticsearch-example</module>
         <module>spring-data-mysql-example</module>
         <module>spring-data-h2-example</module>
+        <module>spring-ldap-example</module>
     </modules>
 
 </project>
