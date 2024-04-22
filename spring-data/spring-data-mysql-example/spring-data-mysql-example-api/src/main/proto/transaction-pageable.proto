@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.kulsin;
+
+option java_package = "com.kulsin.model";
+option java_outer_classname = "PageableProtos";
+
+message Pageable {
+  int32 totalElements = 1;
+  int32 totalPages = 2;
+  int32 pageNumber = 3;
+  int32 pageSize = 4;
+}

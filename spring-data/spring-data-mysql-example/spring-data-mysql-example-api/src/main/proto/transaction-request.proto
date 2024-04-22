@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package com.kulsin;
+
+option java_package = "com.kulsin.model";
+option java_outer_classname = "TransactionRequestProtos";
+
+message TransactionRequest {
+
+  required string from = 1;
+  required string to = 2;
+  optional string userId = 3 [default = ""];
+  optional int32 page = 4 [default = 0];
+  optional int32 size = 5 [default = 50];
+
+}

@@ -1,0 +1,45 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+            http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="kulsin" id="2022102801">
+
+        <createTable tableName="USER">
+            <column name="ID" type="VARCHAR(50)"/>
+            <column name="FIRST_NAME" type="VARCHAR(50)"/>
+            <column name="LAST_NAME" type="VARCHAR(50)"/>
+            <column name="ADDRESS" type="VARCHAR(50)"/>
+            <column name="LOGIN_TIME" type="TIMESTAMP"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="kulsin" id="2022103001">
+        <createTable tableName="SUBSCRIPTION">
+            <column name="ID" type="VARCHAR(50)">
+                <constraints primaryKey="true" primaryKeyName="subscription_id_pk"/>
+            </column>
+            <column name="USER_ID" type="VARCHAR(50)"/>
+            <column name="SUBSCRIPTION" type="VARCHAR(50)"/>
+            <column name="EXPIRY" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="kulsin" id="2022110101">
+        <createTable tableName="TRANSACTION">
+            <column name="TXN_ID" type="BINARY(16)">
+                <constraints primaryKey="true" primaryKeyName="transaction_id_pk"/>
+            </column>
+            <column name="USER_ID" type="VARCHAR(50)"/>
+            <column name="AMOUNT" type="VARCHAR(50)"/>
+            <column name="TYPE" type="VARCHAR(50)"/>
+            <column name="TIME" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
