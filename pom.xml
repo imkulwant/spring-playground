@@ -32,6 +32,7 @@
         <module>spring-integration</module>
         <module>spring-security</module>
         <module>spring-messaging</module>
+        <module>spring-aspects</module>
     </modules>
 
     <repositories>
