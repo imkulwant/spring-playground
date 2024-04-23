@@ -25,11 +25,15 @@
     </properties>
 
     <modules>
+        <module>external-libraries</module>
         <module>spring-cloud</module>
         <module>spring-data</module>
         <module>spring-distributed</module>
-        <module>spring-security</module>
         <module>spring-integration</module>
+        <module>spring-security</module>
+        <module>spring-messaging</module>
+        <module>spring-aspects</module>
+        <module>spring-caching</module>
     </modules>
 
     <repositories>

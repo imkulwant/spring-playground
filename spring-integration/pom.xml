@@ -16,6 +16,8 @@
     <name>Spring Integration</name>
 
     <modules>
+        <module>spring-graphql-example</module>
+        <module>spring-webflux-example</module>
         <module>spring-websocket-undertow-example</module>
     </modules>
 

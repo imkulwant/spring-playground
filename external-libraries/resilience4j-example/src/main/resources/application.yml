@@ -1,0 +1,24 @@
+resilience4j:
+  ratelimiter:
+    instances:
+      getMessage:
+        limitForPeriod: 2
+        limitRefreshPeriod: 5s
+        timeoutDuration: 0
+  retry:
+    instances:
+      unstableService:
+        maxAttempts: 5
+        waitDuration: 100
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+  circuitbreaker:
+    instances:
+      fetchCircuitBreaker:
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: count_based
