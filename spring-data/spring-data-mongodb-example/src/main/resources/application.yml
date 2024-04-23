@@ -1,0 +1,12 @@
+server:
+  port: 8787
+  
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/mds
+      username: ks
+      password: 1234
+  resources:
+    chain:
+      enabled: true

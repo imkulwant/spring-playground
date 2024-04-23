@@ -40,6 +40,12 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.32</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq.tooling</groupId>
+			<artifactId>activemq-junit</artifactId>
+			<version>5.15.9</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
