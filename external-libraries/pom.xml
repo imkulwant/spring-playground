@@ -17,5 +17,6 @@
 
     <modules>
         <module>resilience4j-example</module>
+        <module>akka-example</module>
     </modules>
 </project>
