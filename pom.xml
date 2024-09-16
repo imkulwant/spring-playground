@@ -34,6 +34,7 @@
         <module>spring-messaging</module>
         <module>spring-aspects</module>
         <module>spring-caching</module>
+        <module>spring-aspects/controller-advice-example</module>
     </modules>
 
     <repositories>
