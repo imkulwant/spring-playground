@@ -17,6 +17,7 @@
 
     <modules>
         <module>spring-aop-log-example</module>
+        <module>controller-advice-example</module>
     </modules>
 
 </project>
