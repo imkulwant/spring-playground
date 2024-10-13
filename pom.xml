@@ -35,6 +35,7 @@
         <module>spring-aspects</module>
         <module>spring-caching</module>
         <module>support</module>
+        <module>test-service</module>
     </modules>
 
     <repositories>

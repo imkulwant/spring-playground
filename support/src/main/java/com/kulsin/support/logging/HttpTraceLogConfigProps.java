@@ -3,7 +3,6 @@ package com.kulsin.support.logging;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.Collections;
@@ -12,7 +11,6 @@ import java.util.List;
 @Getter
 @Setter
 @Validated
-@Component
 @ConfigurationProperties(prefix = "com.kulsin.logging.http.trace")
 public class HttpTraceLogConfigProps {
 

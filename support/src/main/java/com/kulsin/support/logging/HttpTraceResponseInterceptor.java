@@ -93,7 +93,7 @@ public class HttpTraceResponseInterceptor implements HttpResponseInterceptor {
         if (httpEntity != null && httpEntity.isRepeatable()) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             httpEntity.writeTo(baos);
-            return httpEntity.getContent().toString();
+            return baos.toString();
         }
         return null;
     }

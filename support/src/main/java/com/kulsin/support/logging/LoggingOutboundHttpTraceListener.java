@@ -14,12 +14,12 @@ public class LoggingOutboundHttpTraceListener implements OutboundHttpTraceListen
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     @Override
     public void afterResponseReceived(HttpTraceEntry traceEntry) {
-        logger.debug("After outgoing request [" + httpTraceEntryStringRenderer.renderEntry(traceEntry) + "]");
+        logger.info("After outgoing request [" + httpTraceEntryStringRenderer.renderEntry(traceEntry) + "]");
 
     }
 

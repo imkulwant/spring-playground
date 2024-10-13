@@ -25,13 +25,11 @@ public class HttpLoggingConfig {
     }
 
     @Bean
-    @ConditionalOnMissingBean
     LoggingOutboundHttpTraceListener outboundHttpTraceListener(HttpTraceEntryStringRenderer httpTraceEntryStringRenderer) {
         return new LoggingOutboundHttpTraceListener(httpTraceEntryStringRenderer);
     }
 
     @Bean
-    @ConditionalOnMissingBean
     HttpTraceEntryStringRenderer httpTraceEntryStringRenderer(HttpTraceLogConfigProps configProps) {
         return new HttpTraceEntryStringRenderer(configProps);
     }
