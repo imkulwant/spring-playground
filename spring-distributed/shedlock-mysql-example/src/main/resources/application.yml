@@ -2,8 +2,8 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/garage?createDatabaseIfNotExist=true
-    username: garage_user
-    password: adminpass
+    username: root
+    password: adminpassword
   jpa:
     hibernate:
       ddl-auto: create-drop

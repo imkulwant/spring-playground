@@ -34,6 +34,7 @@
         <module>spring-messaging</module>
         <module>spring-aspects</module>
         <module>spring-caching</module>
+        <module>support</module>
     </modules>
 
     <repositories>

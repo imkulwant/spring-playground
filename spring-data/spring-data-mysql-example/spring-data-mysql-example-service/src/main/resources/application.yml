@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/garage
-    username: sa
-    password: sa
+    url: jdbc:mysql://localhost:3306/garage?createDatabaseIfNotExist=true
+    username: root
+    password: adminpassword
     driver: com.mysql.jdbc.Driver
     outputChangeLogFile: src/main/resources/liquibase-output-change-log.xml
 #  jackson:
