@@ -4,7 +4,6 @@ import com.kulsin.support.logging.model.HttpTraceEntry;
 import com.kulsin.support.logging.model.Request;
 import com.kulsin.support.logging.model.Response;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.apache.hc.core5.http.EntityDetails;
 import org.apache.hc.core5.http.Header;
 import org.apache.hc.core5.http.HttpEntity;

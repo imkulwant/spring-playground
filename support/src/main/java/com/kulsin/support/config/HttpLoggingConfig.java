@@ -8,7 +8,6 @@ import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,7 +40,7 @@ public class HttpLoggingConfig {
             public Object postProcessAfterInitialization(@NonNull Object bean, @NonNull String beanName) throws BeansException {
                 if (bean instanceof HttpClientBuilder builder) {
                     httpTraceResponseInterceptorProvider.ifAvailable(
-                            interceptor -> builder.addResponseInterceptorFirst(interceptor)
+                            builder::addResponseInterceptorFirst
                     );
                 }
                 return bean;

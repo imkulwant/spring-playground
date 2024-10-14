@@ -1,8 +1,8 @@
 package com.kulsin.support.restclient;
 
-import com.kulsin.support.logging.HttpTraceResponseInterceptor;
-import org.apache.hc.client5.http.impl.classic.HttpClients;
-import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.core5.util.Timeout;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -12,18 +12,31 @@ import java.time.Duration;
 
 public class RestClientFactory {
 
-    public static RestClient createRestClient(String baseUrl, Duration connectTimeout, Duration readTimeout) {
+    private static final Duration DEFAULT_CONNECT_TIMEOUT = Duration.ofSeconds(5);
+    private static final Duration DEFAULT_READ_TIMEOUT = Duration.ofSeconds(5);
+
+    public static HttpClientBuilder httpClientBuilder() {
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(Timeout.of(DEFAULT_CONNECT_TIMEOUT))
+                .setResponseTimeout(Timeout.of(DEFAULT_READ_TIMEOUT))
+                .build();
+
+        return HttpClientBuilder
+                .create()
+                .setDefaultRequestConfig(requestConfig);
+    }
+
+    public static RestClient createRestClient(HttpClientBuilder httpClientBuilder) {
         return RestClient.builder()
-                .baseUrl(baseUrl)
-                .requestFactory(createRequestFactory(connectTimeout, readTimeout))
+                .requestFactory(httpRequestFactory(httpClientBuilder))
                 .build();
 
     }
 
-    public static RestClient createRestClient(String baseUrl, Duration connectTimeout, Duration readTimeout, HttpTraceResponseInterceptor httpTraceResponseInterceptor) {
+    public static RestClient createRestClient(String baseUrl, HttpClientBuilder httpClientBuilder) {
         return RestClient.builder()
                 .baseUrl(baseUrl)
-                .requestFactory(httpComponentsClientHttpRequestFactory(httpTraceResponseInterceptor))
+                .requestFactory(httpRequestFactory(httpClientBuilder))
                 .build();
 
     }
@@ -35,14 +48,9 @@ public class RestClientFactory {
         return factory;
     }
 
-    private static HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory(HttpTraceResponseInterceptor httpTraceResponseInterceptor) {
+    private static HttpComponentsClientHttpRequestFactory httpRequestFactory(HttpClientBuilder httpClientBuilder) {
         HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        factory.setHttpClient(HttpClients.custom()
-                .setConnectionManager(PoolingHttpClientConnectionManagerBuilder.create()
-                        .build())
-                .addResponseInterceptorLast(httpTraceResponseInterceptor)
-                .build());
-
+        factory.setHttpClient(httpClientBuilder.build());
         return factory;
     }
 }

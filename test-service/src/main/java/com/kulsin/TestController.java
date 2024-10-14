@@ -14,8 +14,8 @@ public class TestController {
 
     private final RestClient restClient;
 
-    public TestController(RestClient restClient) {
-        this.restClient = restClient;
+    public TestController(RestClient testRestClient) {
+        this.restClient = testRestClient;
     }
 
     @GetMapping("/api")
