@@ -17,18 +17,18 @@ import org.springframework.lang.NonNull;
 public class HttpTransactionLogConfig {
 
     @Bean
-    HttpTransactionResponseInterceptor httpTraceResponseInterceptor(HttpTransactionLogProperties configProps,
-                                                                    LoggingOutboundHttpCallListener outboundHttpTraceListener) {
+    HttpTransactionResponseInterceptor httpTransactionResponseInterceptor(HttpTransactionLogProperties configProps,
+                                                                          LoggingOutboundHttpCallListener outboundHttpTraceListener) {
         return new HttpTransactionResponseInterceptor(configProps, outboundHttpTraceListener);
     }
 
     @Bean
-    LoggingOutboundHttpCallListener outboundHttpTraceListener(HttpTransactionLogGenerator httpTransactionLogGenerator) {
+    LoggingOutboundHttpCallListener outboundHttpCallListener(HttpTransactionLogGenerator httpTransactionLogGenerator) {
         return new LoggingOutboundHttpCallListener(httpTransactionLogGenerator);
     }
 
     @Bean
-    HttpTransactionLogGenerator httpTraceEntryStringRenderer(HttpTransactionLogProperties configProps) {
+    HttpTransactionLogGenerator httpTransactionLogGenerator(HttpTransactionLogProperties configProps) {
         return new HttpTransactionLogGenerator(configProps);
     }
 
