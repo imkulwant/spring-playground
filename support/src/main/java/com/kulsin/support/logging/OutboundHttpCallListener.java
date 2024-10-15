@@ -1,13 +1,13 @@
 package com.kulsin.support.logging;
 
-import com.kulsin.support.logging.model.HttpTraceEntry;
+import com.kulsin.support.logging.model.HttpTransaction;
 
 /**
  * Listener interface for tracing outbound HTTP requests and responses.
  * Implementations of this interface can be used to log, monitor, or analyze
  * outgoing HTTP traffic.
  */
-public interface OutboundHttpTraceListener {
+public interface OutboundHttpCallListener {
 
     /**
      * Checks if this listener is enabled.
@@ -21,6 +21,6 @@ public interface OutboundHttpTraceListener {
      *
      * @param traceEntry An object containing details about the HTTP request and response
      */
-    void afterResponseReceived(HttpTraceEntry traceEntry);
+    void afterResponseReceived(HttpTransaction traceEntry);
 
 }

@@ -1,4 +1,4 @@
-package com.kulsin.support.logging;
+package com.kulsin.support.config;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,8 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 @Validated
-@ConfigurationProperties(prefix = "com.kulsin.logging.http.trace")
-public class HttpTraceLogConfigProps {
+@ConfigurationProperties(prefix = "com.kulsin.logging.http.transaction")
+public class HttpTransactionLogProperties {
 
     /**
      * Flag to opt-out from the http tracing infrastructure.

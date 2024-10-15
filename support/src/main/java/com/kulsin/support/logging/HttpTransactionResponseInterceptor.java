@@ -1,6 +1,7 @@
 package com.kulsin.support.logging;
 
-import com.kulsin.support.logging.model.HttpTraceEntry;
+import com.kulsin.support.config.HttpTransactionLogProperties;
+import com.kulsin.support.logging.model.HttpTransaction;
 import com.kulsin.support.logging.model.Request;
 import com.kulsin.support.logging.model.Response;
 import lombok.AllArgsConstructor;
@@ -24,12 +25,19 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
 
+/**
+ * Intercepts HTTP responses and logs transaction details.
+ * <p>
+ * This class implements the {@link HttpResponseInterceptor} interface to process
+ * HTTP responses, extract relevant information, and log the complete HTTP transaction
+ * including both request and response details.
+ */
 @AllArgsConstructor
-public class HttpTraceResponseInterceptor implements HttpResponseInterceptor {
+public class HttpTransactionResponseInterceptor implements HttpResponseInterceptor {
 
-    private final HttpTraceLogConfigProps configProps;
+    private final HttpTransactionLogProperties configProps;
 
-    private final LoggingOutboundHttpTraceListener outboundHttpTraceListener;
+    private final LoggingOutboundHttpCallListener outboundHttpTraceListener;
 
     private final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -63,7 +71,7 @@ public class HttpTraceResponseInterceptor implements HttpResponseInterceptor {
 
             URI requestUri = URI.create(request.getRequestUri());
 
-            HttpTraceEntry entry = HttpTraceEntry.builder()
+            HttpTransaction httpTransaction = HttpTransaction.builder()
                     .request(Request.builder()
                             .httpMethod(HttpMethod.valueOf(request.getMethod()))
                             .uri(requestUri.getPath())
@@ -79,7 +87,7 @@ public class HttpTraceResponseInterceptor implements HttpResponseInterceptor {
                             .build())
                     .build();
 
-            outboundHttpTraceListener.afterResponseReceived(entry);
+            outboundHttpTraceListener.afterResponseReceived(httpTransaction);
         }
 
     }

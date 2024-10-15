@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
 @Configuration
-public class HttpClientConfig {
+public class RestClientConfig {
 
     @Bean
     public HttpClientBuilder httpClientBuilder() {

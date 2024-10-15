@@ -14,7 +14,7 @@ import java.time.Instant;
 @Data
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class HttpTraceEntry {
+public class HttpTransaction {
 
     /**
      * The HTTP request details.

@@ -1,6 +1,7 @@
 package com.kulsin.support.logging;
 
-import com.kulsin.support.logging.model.HttpTraceEntry;
+import com.kulsin.support.config.HttpTransactionLogProperties;
+import com.kulsin.support.logging.model.HttpTransaction;
 import com.kulsin.support.logging.model.Request;
 import com.kulsin.support.logging.model.Response;
 import org.springframework.http.HttpHeaders;
@@ -9,17 +10,18 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class HttpTraceEntryStringRenderer {
+public class HttpTransactionLogGenerator {
+
     private final static String INDENT = "     ";
     private final static String NEWLINE = "\n";
 
-    private final HttpTraceLogConfigProps configProps;
+    private final HttpTransactionLogProperties configProps;
 
-    public HttpTraceEntryStringRenderer(HttpTraceLogConfigProps configProps) {
+    public HttpTransactionLogGenerator(HttpTransactionLogProperties configProps) {
         this.configProps = Objects.requireNonNull(configProps);
     }
 
-    public String renderEntry(HttpTraceEntry traceEntry) {
+    public String generateLog(HttpTransaction traceEntry) {
         StringBuilder sb = new StringBuilder();
         {
             Request request = traceEntry.getRequest();
