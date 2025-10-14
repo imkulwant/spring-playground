@@ -43,7 +43,7 @@
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>${protobuf-maven-plugin.version}</version>
                 <configuration>
-                    <protocExecutable>/usr/local/bin/protoc</protocExecutable>
+                    <protocExecutable>/opt/homebrew/bin/protoc</protocExecutable>
                 </configuration>
                 <executions>
                     <execution>
@@ -61,6 +61,7 @@
                     </execution>
                 </executions>
             </plugin>
+<!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -72,6 +73,7 @@
                 </configuration>
                 <inherited>true</inherited>
             </plugin>
+-->
         </plugins>
 
     </build>
